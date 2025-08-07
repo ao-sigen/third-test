@@ -1,0 +1,277 @@
+body {
+    background-color: #f0f0f0;
+    /* 全体の薄いグレー背景 */
+}
+
+.main-container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.status-box {
+    width: 90%;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.status-item {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+}
+
+/* 「目標体重」「現在体重」「あと」のラベルと数字を縦に並べる */
+.status-item strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 24px;
+    color: #000;
+}
+
+.data-box {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* top-bar：フォームとボタンを横並び */
+.top-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+/* 検索フォーム */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* リセットボタンはフォーム内でなく独立させて押しやすく */
+.btn-reset {
+    padding: 6px 12px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* 日付入力欄 */
+.search-form input[type="date"] {
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.btn-add {
+    background: linear-gradient(to right, #b383b9, #ff99bb);
+    /* 薄紫→ピンク */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-add:hover {
+    opacity: 0.9;
+}
+
+.reset-btn {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 6px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.reset-btn:hover {
+    background-color: #ddd;
+}
+
+/* 検索結果 */
+.search-result {
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* ログリスト全体 */
+.log-list {
+    width: 100%;
+}
+
+/* ヘッダー行とログ行はグリッド表示 */
+.log-header,
+.log-item {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 0.5fr;
+    /* 日付を少し広めに */
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.log-header {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.log-item:hover {
+    background-color: #f1f1f1;
+}
+
+.edit-icon {
+    font-size: 18px;
+    text-decoration: none;
+}
+
+/* ページネーション中央 */
+.pagination-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+.hidden {
+    display: none;
+}
+
+/* モーダル全体を中央に表示 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+/* モーダルの中身 */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    width: 45%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* ラベルとインプット */
+.modal-content label {
+    text-align: left;
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 必須マーク */
+.required-label::after {
+    content: "必須";
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    margin-left: 10px;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* 各入力欄 */
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 単位用の装飾 */
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.input-with-unit {
+    position: relative;
+}
+
+.input-with-unit input {
+    padding-right: 50px;
+}
+
+.input-with-unit .unit {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 14px;
+}
+
+.exercise-textarea {
+    width: 100%;
+    /* 幅いっぱいに */
+    height: 200px;
+    /* 高さ大きめに（調整可能） */
+    resize: vertical;
+    /* ユーザーが縦にリサイズ可能（オプション） */
+}
+
+/* ボタン */
+.modal-content .btn {
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 120px;
+}
+
+.modal-content .btn-close {
+    background-color: #ccc;
+    color: white;
+    margin-right: 10px;
+}
+
+.modal-content .btn-submit {
+    background: linear-gradient(45deg, #d36ac2, #ffa1d9);
+    color: white;
+}
+
+/* ボタンを中央に配置 */
+.modal-content form {
+    text-align: center;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}

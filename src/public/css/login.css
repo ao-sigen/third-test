@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/images/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+}
+
+/* フォーム全体 */
+form {
+    background-color: white;
+    width: 500px;
+    padding: 40px;
+    margin: 80px auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* フォーム内のロゴとタイトル */
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo {
+    font-size: 48px;
+    color: pink;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.login-title {
+    font-size: 24px;
+    color: black;
+}
+
+/* 各入力欄とラベル */
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+/* エラー表示 */
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+/* ボタン */
+button[type="submit"] {
+    width: 200px;
+    padding: 12px;
+    background: linear-gradient(to right, #d36ac2, #ffa1d9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 10px auto;
+}
+
+/* アカウント作成リンク */
+.account-link {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #0066cc;
+    text-decoration: underline;
+}
