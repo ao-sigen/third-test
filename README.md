@@ -47,4 +47,4 @@ php artisan db:seed
 - MySQL8.0.34
 
 ## ER図
-![alt](ER.drawio.png)
+src/ER.drawio.png
