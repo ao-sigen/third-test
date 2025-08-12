@@ -20,11 +20,12 @@ class WeightLogFactory extends Factory
 
         return [
             'user_id' => User::factory(),
-            'date' => fake()->dateTimeBetween('-40 days', 'now')->format('Y-m-d'),
-            'weight' => fake()->randomFloat(50, 70, 35),
-            'calories' => fake()->numberBetween(1500, 2000),
-            'exercise_time' => fake()->numberBetween(0, 120),
-            'exercise_content' => fake()->sentence(3),
+            'date' => $this->faker->dateTimeBetween('-40 days', 'now')->format('Y-m-d'),
+            'weight' => $this->faker->randomFloat(50, 70, 35),
+            'calories' => $this->faker->numberBetween(1500, 2000),
+            'exercise_time' => $this->faker->numberBetween(0, 120),
+            'exercise_content' => $this->faker->sentence(3),
         ];
     }
+    
 }

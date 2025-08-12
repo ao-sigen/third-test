@@ -7,25 +7,31 @@ use App\Models\User;
 use App\Models\WeightLog;
 use App\Models\WeightTarget;
 
-class WeightDataSeeder extends Seeder
+class WeightLogSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. ユーザー1名作成
-        $user = User::factory()->create([
-            'name' => 'テストユーザー',
-            'email' => 'test@example.com',
-            'password' => bcrypt('password'),
-        ]);
+        // WeightLogSeeder.php
 
-        // 2. 体重記録35件作成（ユーザーに紐づけ）
-        WeightLog::factory()->count(35)->create([
-            'user_id' => $user->id,
-        ]);
+        $user = User::firstOrCreate(
+            ['email' => 'test@example.com'],
+            [
+                'name' => 'テストユーザー',
+                'password' => bcrypt('testpassword'),
+            ]
+        );
 
-        // 3. 目標体重1件作成（ユーザーに紐づけ）
-        WeightTarget::factory()->create([
-            'user_id' => $user->id,
-        ]);
+        // ユーザーの既存データに追加で WeightLog と WeightTarget を作成
+        if ($user->weightLogs()->count() === 0) {
+            WeightLog::factory()->count(35)->create([
+                'user_id' => $user->id,
+            ]);
+        }
+
+        if (!$user->weightTarget) {
+            WeightTarget::factory()->create([
+                'user_id' => $user->id,
+            ]);
+        }
     }
 }

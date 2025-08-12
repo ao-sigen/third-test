@@ -16,7 +16,7 @@ class WeightTargetFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'target_weight' => fake()->randomFloat(1, 50, 80),
+            'target_weight' => $this->faker->randomFloat(1, 50, 80),
         ];
     }
 }
